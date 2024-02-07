@@ -70,20 +70,20 @@ def main():
     init_image = center_crop(resize(init_image))
 
     with torch.autocast('cuda'):
-    X = preprocess(init_image).half().cuda()
-    adv_X = pgd(X,
-                model=pipe_img2img.vae.encode,
-                clamp_min=-1,
-                clamp_max=1,
-                eps=0.06, # The higher, the less imperceptible the attack is
-                step_size=0.02, # Set smaller than eps
-                iters=1000, # The higher, the stronger your attack will be
-               )
-
-    # convert pixels back to [0,1] range
-    adv_X = (adv_X / 2 + 0.5).clamp(0, 1)
-
-    adv_image = to_pil(adv_X[0]).convert("RGB")
+        X = preprocess(init_image).half().cuda()
+        adv_X = pgd(X,
+                    model=pipe_img2img.vae.encode,
+                    clamp_min=-1,
+                    clamp_max=1,
+                    eps=0.06, # The higher, the less imperceptible the attack is
+                    step_size=0.02, # Set smaller than eps
+                    iters=1000, # The higher, the stronger your attack will be
+                   )
+    
+        # convert pixels back to [0,1] range
+        adv_X = (adv_X / 2 + 0.5).clamp(0, 1)
+    
+        adv_image = to_pil(adv_X[0]).convert("RGB")
     adv_image.save(args.output_dir, 'png')
 
 
