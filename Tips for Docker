@@ -5,6 +5,5 @@ pip install -r MIT_photoguard/requirements.txt
 pip install accelerate
 
 pip install --upgrade huggingface_hub
-from huggingface_hub import login
 huggingface-cli login 
 # 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
