@@ -7,3 +7,10 @@ pip install accelerate
 pip install --upgrade huggingface_hub
 huggingface-cli login 
 # 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
+
+
+######## Github Tips #########
+github 업데이트 후 -> git pull origin main 
+(main:branch 이름)
+
+
