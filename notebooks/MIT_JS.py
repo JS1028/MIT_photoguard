@@ -1,6 +1,3 @@
-%load_ext autoreload
-%autoreload 2
-
 import os
 from PIL import Image, ImageOps
 import requests
