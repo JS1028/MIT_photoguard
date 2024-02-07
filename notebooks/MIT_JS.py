@@ -77,7 +77,7 @@ def main():
                     clamp_max=1,
                     eps=0.06, # The higher, the less imperceptible the attack is
                     step_size=0.02, # Set smaller than eps
-                    iters=1000, # The higher, the stronger your attack will be
+                    iters=500, # The higher, the stronger your attack will be
                    )
     
         # convert pixels back to [0,1] range
